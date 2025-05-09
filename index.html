@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZypherOS 1.0 Web</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="header">ZypherOS 1.0</div>
+  <div class="app-grid">
+    <div class="icon-card" onclick="launchApp('notes')">
+      📝<span>Notes</span>
+    </div>
+    <div class="icon-card" onclick="launchApp('files')">
+      📁<span>Files</span>
+    </div>
+    <div class="icon-card" onclick="launchApp('terminal')">
+      >_<span>Terminal</span>
+    </div>
+    <div class="icon-card" onclick="launchApp('browser')">
+      🌐<span>Browser</span>
+    </div>
+  </div>
+  <div id="app-container"></div>
+
+  <script src="app/launcher.js"></script>
+  <script src="app/fs.js"></script>
+  <script src="app/notes.js"></script>
+  <script src="app/terminal.js"></script>
+  <script src="app/browser.js"></script>
+</body>
+</html>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #111;
+  color: #eee;
+}
+
+.header {
+  background: #222;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.7rem;
+  border-bottom: 1px solid #333;
+  font-weight: bold;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.icon-card {
+  background: #222;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: center;
+  padding: 2rem 1rem;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.icon-card span {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.icon-card:hover {
+  background: #333;
+  transform: scale(1.03);
+}
+
+#app-container {
+  padding: 1rem;
+}
+</style>
